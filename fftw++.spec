@@ -20,7 +20,7 @@ FFTW++ is a C++ header class for version 3 of the highly optimized
 FFTW Fourier Transform library. 
 
 %description -l pl
-FFTW++ jest bibibliotek± klas napisan± w C++ dla wersji 3 biblioteki
+FFTW++ jest bibliotek± klas napisan± w C++ dla wersji 3 biblioteki
 szybkiej transformaty Fouriera FFTW.
 
 %package devel
