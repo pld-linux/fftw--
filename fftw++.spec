@@ -11,13 +11,14 @@ Source1:	http://www.math.ualberta.ca/~bowman/Array.h
 URL:		http://www.math.ualberta.ca/imaging/fftw++/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	fftw3-devel
 BuildRequires:	libstdc++-devel
-Requires:	fftw3
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 FFTW++ is a C++ header class for version 3 of the highly optimized
-FFTW Fourier Transform library. 
+FFTW Fast Fourier Transform library. 
 
 %description -l pl
 FFTW++ jest bibliotek± klas napisan± w C++ dla wersji 3 biblioteki
@@ -28,20 +29,34 @@ Summary:	Development files for fftw++
 Summary(pl):	Pliki programistyczne do fftw++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	fftw3-devel
+Requires:	libstdc++-devel
 
 %description devel
 This package contains the files you need to develop programs using the
-FFTW++ (fast fourier transform library).
+FFTW++ (Fast Fourier Transform library).
 
 %description devel -l pl
 Ten pakiet zawiera pliki potrzebne do tworzenia programów u¿ywaj±cych
 biblioteki FFTW++ (wykonuj±cej szybk± transformatê Fouriera).
 
+%package static
+Summary:	Static fftw++ library
+Summary(pl):	Statyczna biblioteka fftw++
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static fftw++ library.
+
+%description static -l pl
+Statyczna biblioteka fftw++.
+
 %package examples
 Summary:	Example files for fftw++
-Summary(pl):	Przyk³±dy programistyczne do fftw++
+Summary(pl):	Przyk³ady programistyczne do fftw++
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description examples
 Examples how to use fftw++.
@@ -52,24 +67,40 @@ Przyk³ady do fftw++.
 %prep
 %setup -q
 
+%build
+libtool --mode=compile --tag CXX %{__cxx} %{rpmcxxflags} -fPIC -o fftw++.lo -c fftw++.cc
+libtool --mode=link --tag CXX %{__cxx} -o libfftw++.la -rpath %{_libdir} fftw++.lo -lfftw3
+
 %install
 rm -rf $RPM_BUILD_ROOT
-install	-d $RPM_BUILD_ROOT{%{_includedir}/fftw++,%{_examplesdir}/%{name}-%{version}}
+install	-d $RPM_BUILD_ROOT{%{_libdir},%{_includedir}/fftw++,%{_examplesdir}/%{name}-%{version}}
 
-install fftw++.*   $RPM_BUILD_ROOT%{_includedir}/fftw++
+libtool --mode=install install libfftw++.la $RPM_BUILD_ROOT%{_libdir}
+
+install fftw++.h $RPM_BUILD_ROOT%{_includedir}/fftw++
 install %{SOURCE1} $RPM_BUILD_ROOT%{_includedir}/fftw++
-install  example*.*   $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install example*.* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
+
 %files
 %defattr(644,root,root,755)
-%doc README LICENSE
+%doc README
+%attr(755,root,root) %{_libdir}/libfftw++.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libfftw++.so
+%{_libdir}/libfftw++.la
 %{_includedir}/fftw++
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libfftw++.a
 
 %files examples
 %defattr(644,root,root,755)
