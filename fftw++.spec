@@ -1,5 +1,5 @@
 Summary:	Fast Fourier Transform C++ Header Class for FFTW3 Library
-Summary(pl.UTF-8):   Biblioteka klas C++ z funkcjami szybkiej transformaty Fouriera
+Summary(pl.UTF-8):	Biblioteka klas C++ z funkcjami szybkiej transformaty Fouriera
 Name:		fftw++
 Version:	1.01
 Release:	0.1
@@ -26,7 +26,7 @@ szybkiej transformaty Fouriera FFTW.
 
 %package devel
 Summary:	Development files for fftw++
-Summary(pl.UTF-8):   Pliki programistyczne do fftw++
+Summary(pl.UTF-8):	Pliki programistyczne do fftw++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	fftw3-devel
@@ -42,7 +42,7 @@ biblioteki FFTW++ (wykonującej szybką transformatę Fouriera).
 
 %package static
 Summary:	Static fftw++ library
-Summary(pl.UTF-8):   Statyczna biblioteka fftw++
+Summary(pl.UTF-8):	Statyczna biblioteka fftw++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
@@ -54,7 +54,7 @@ Statyczna biblioteka fftw++.
 
 %package examples
 Summary:	Example files for fftw++
-Summary(pl.UTF-8):   Przykłady programistyczne do fftw++
+Summary(pl.UTF-8):	Przykłady programistyczne do fftw++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
