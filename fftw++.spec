@@ -1,5 +1,5 @@
 Summary:	Fast Fourier Transform C++ Header Class for FFTW3 Library
-Summary(pl):	Biblioteka klas C++ z funkcjami szybkiej transformaty Fouriera
+Summary(pl.UTF-8):   Biblioteka klas C++ z funkcjami szybkiej transformaty Fouriera
 Name:		fftw++
 Version:	1.01
 Release:	0.1
@@ -20,13 +20,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 FFTW++ is a C++ header class for version 3 of the highly optimized
 FFTW Fast Fourier Transform library. 
 
-%description -l pl
-FFTW++ jest bibliotek± klas napisan± w C++ dla wersji 3 biblioteki
+%description -l pl.UTF-8
+FFTW++ jest bibliotekÄ… klas napisanÄ… w C++ dla wersji 3 biblioteki
 szybkiej transformaty Fouriera FFTW.
 
 %package devel
 Summary:	Development files for fftw++
-Summary(pl):	Pliki programistyczne do fftw++
+Summary(pl.UTF-8):   Pliki programistyczne do fftw++
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	fftw3-devel
@@ -36,33 +36,33 @@ Requires:	libstdc++-devel
 This package contains the files you need to develop programs using the
 FFTW++ (Fast Fourier Transform library).
 
-%description devel -l pl
-Ten pakiet zawiera pliki potrzebne do tworzenia programów u¿ywaj±cych
-biblioteki FFTW++ (wykonuj±cej szybk± transformatê Fouriera).
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki potrzebne do tworzenia programÃ³w uÅ¼ywajÄ…cych
+biblioteki FFTW++ (wykonujÄ…cej szybkÄ… transformatÄ™ Fouriera).
 
 %package static
 Summary:	Static fftw++ library
-Summary(pl):	Statyczna biblioteka fftw++
+Summary(pl.UTF-8):   Statyczna biblioteka fftw++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static fftw++ library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczna biblioteka fftw++.
 
 %package examples
 Summary:	Example files for fftw++
-Summary(pl):	Przyk³ady programistyczne do fftw++
+Summary(pl.UTF-8):   PrzykÅ‚ady programistyczne do fftw++
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description examples
 Examples how to use fftw++.
 
-%description examples -l pl
-Przyk³ady do fftw++.
+%description examples -l pl.UTF-8
+PrzykÅ‚ady do fftw++.
 
 %prep
 %setup -q
