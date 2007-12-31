@@ -1,12 +1,12 @@
 Summary:	Fast Fourier Transform C++ Header Class for FFTW3 Library
 Summary(pl.UTF-8):	Biblioteka klas C++ z funkcjami szybkiej transformaty Fouriera
 Name:		fftw++
-Version:	1.01
+Version:	1.03
 Release:	0.1
 License:	GPL
 Group:		Libraries
 Source0:	http://www.math.ualberta.ca/imaging/fftw++/%{name}-%{version}.tar.gz
-# Source0-md5:	42ac1ed342ade0d6242f0ee776433ad6
+# Source0-md5:	334630830d055016cd4079349c166cbc
 Source1:	http://www.math.ualberta.ca/~bowman/Array.h
 URL:		http://www.math.ualberta.ca/imaging/fftw++/
 BuildRequires:	autoconf
